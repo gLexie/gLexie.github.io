@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="活像一只小兔， very similar with a rabbit ！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小兔">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="一、检查属性是否在对象中1、hasOwnProperty 描述：检查一个对象是否有属性，此方法无法检查该对象的原型链中是否具有该属性（该属性必须是对象本身的一个成员） 格式：obj.hasOwnProperty(prop) 参数：prop 要检测的属性  字符串 名称或者 Symbol 返回值：用来判断某个对象是否含有指定的属性的 Boolean 注意：和 in 运算符不同，该方法会忽略掉那些从原">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别">
+<meta property="og:url" content="http://yoursite.com/2018/09/05/js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别/index.html">
 <meta property="og:site_name" content="小兔">
-<meta property="og:description" content="活像一只小兔， very similar with a rabbit ！">
+<meta property="og:description" content="一、检查属性是否在对象中1、hasOwnProperty 描述：检查一个对象是否有属性，此方法无法检查该对象的原型链中是否具有该属性（该属性必须是对象本身的一个成员） 格式：obj.hasOwnProperty(prop) 参数：prop 要检测的属性  字符串 名称或者 Symbol 返回值：用来判断某个对象是否含有指定的属性的 Boolean 注意：和 in 运算符不同，该方法会忽略掉那些从原">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-06T03:18:06.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小兔">
-<meta name="twitter:description" content="活像一只小兔， very similar with a rabbit ！">
+<meta name="twitter:title" content="js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别">
+<meta name="twitter:description" content="一、检查属性是否在对象中1、hasOwnProperty 描述：检查一个对象是否有属性，此方法无法检查该对象的原型链中是否具有该属性（该属性必须是对象本身的一个成员） 格式：obj.hasOwnProperty(prop) 参数：prop 要检测的属性  字符串 名称或者 Symbol 返回值：用来判断某个对象是否含有指定的属性的 Boolean 注意：和 in 运算符不同，该方法会忽略掉那些从原">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/05/js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别/"/>
 
 
 
 
 
-  <title>小兔</title>
+  <title>js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别 | 小兔</title>
   
 
 
@@ -143,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -217,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -249,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/05/js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别/" itemprop="url">js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别</a></h1>
+          <h1 class="post-title" itemprop="name headline">js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别</h1>
         
 
         <div class="post-meta">
@@ -301,9 +299,7 @@
       
 
       
-        
-          
-            <h2 id="一、检查属性是否在对象中"><a href="#一、检查属性是否在对象中" class="headerlink" title="一、检查属性是否在对象中"></a>一、检查属性是否在对象中</h2><h3 id="1、hasOwnProperty"><a href="#1、hasOwnProperty" class="headerlink" title="1、hasOwnProperty"></a>1、hasOwnProperty</h3><ul>
+        <h2 id="一、检查属性是否在对象中"><a href="#一、检查属性是否在对象中" class="headerlink" title="一、检查属性是否在对象中"></a>一、检查属性是否在对象中</h2><h3 id="1、hasOwnProperty"><a href="#1、hasOwnProperty" class="headerlink" title="1、hasOwnProperty"></a>1、hasOwnProperty</h3><ul>
 <li>描述：检查一个对象是否有属性，此方法无法检查该对象的原型链中是否具有该属性（该属性必须是对象本身的一个成员）</li>
 <li>格式：obj.hasOwnProperty(prop)</li>
 <li>参数：prop 要检测的属性  字符串 名称或者 Symbol</li>
@@ -350,8 +346,6 @@
 <p>A.isPrototypeOf(B) 判断的是A对象是否存在于B对象的原型链之中<br>A instanceof B  判断的是B.prototype是否存在于A的原型链之中<br>结论：<font color="#1980e6">如果 A.isPrototypeOf(B)  返回true，则 B instanceof A 一定返回true</font></p>
 </blockquote>
 
-          
-        
       
     </div>
     
@@ -368,137 +362,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/js对象深拷贝/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lexie Moon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/03/js对象深拷贝/" itemprop="url">js对象深拷贝</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-03T09:33:24+08:00">
-                2018-09-03
-              </time>
+              <a href="/2018/09/03/js对象深拷贝/" rel="next" title="js对象深拷贝">
+                <i class="fa fa-chevron-left"></i> js对象深拷贝
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h4 id="js封装公共方法"><a href="#js封装公共方法" class="headerlink" title="js封装公共方法"></a>js封装公共方法</h4><ul>
-<li>主要思路是使用<strong><font color="#1980e6">递归</font></strong>，其中注意判断克隆的节点或者子节点是对象还是数组</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//深拷贝方法</span></span><br><span class="line">  <span class="keyword">const</span> deepCopy = <span class="function">(<span class="params">src</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> src != <span class="string">"object"</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> src;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> dist = &#123;&#125;;</span><br><span class="line">      <span class="keyword">if</span> (src <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">          dist = [];</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (i <span class="keyword">in</span> src) &#123;</span><br><span class="line">          <span class="keyword">if</span> (src.hasOwnProperty(i))</span><br><span class="line">              dist[i] = deepCopy(src[i]);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> dist;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//测试</span></span><br><span class="line">  <span class="keyword">let</span> obj = &#123;</span><br><span class="line">      a: <span class="number">1</span>,</span><br><span class="line">      b: &#123;</span><br><span class="line">          b1: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      c: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">          i++;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> obj2 = deepCopy(obj)</span><br><span class="line">  obj2.a = <span class="string">"obj2"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(obj)  <span class="comment">//没影响：obj.a -&gt; 1</span></span><br><span class="line">  <span class="built_in">console</span>.log(obj2) <span class="comment">//改变了：obj2.a -&gt; "obj2"</span></span><br><span class="line"></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h4><p>特别注意：ES6提供了一个Object.assign()方法用于拷贝和合并对象，但是该方法也只是一个浅拷贝方法，使用时请慎重。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -508,264 +393,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/10/vue-cli+webpack项目，手机无法访问本地服务/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lexie Moon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/10/vue-cli+webpack项目，手机无法访问本地服务/" itemprop="url">vue-cli+webpack项目，手机无法访问本地服务</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T15:10:58+08:00">
-                2018-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>在pc端启动服务（使用npm run dev），用手机访问查看页面。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>使用npm run dev启动服务后，pc端可以通过 <a href="http://loaclhost:8888" target="_blank" rel="noopener">http://loaclhost:8888</a> 来访问页面（其实也无法使用本机ip:port的地址去访问页面），手机与pc连接同一无线网络，也关闭了pc端防火墙，pc端也能ping通手机的ip，手机端却始终无法通过ip:port的地址去访问页面，会显示无法访问的字样。</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>文件<font color="orange">package.json</font>中，在dev命令的最后加上<font color="orange">–host 0.0.0.0</font>：</p>
-<blockquote>
-<p>“scripts”: {<br>        “dev”: “webpack-dev-server –inline –progress –config build/webpack.dev.conf.js –host 0.0.0.0”<br>  }</p>
-</blockquote>
-<p>重新使用npm run dev启动服务即可用手机访问本地服务提供的页面了。 </p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/10/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lexie Moon">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小兔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/10/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T11:08:53+08:00">
-                2018-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -773,6 +405,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -793,8 +429,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -836,6 +481,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、检查属性是否在对象中"><span class="nav-number">1.</span> <span class="nav-text">一、检查属性是否在对象中</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、hasOwnProperty"><span class="nav-number">1.1.</span> <span class="nav-text">1、hasOwnProperty</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展：hasOwnProperty最好结合call使用"><span class="nav-number">1.1.1.</span> <span class="nav-text">扩展：hasOwnProperty最好结合call使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、in"><span class="nav-number">1.2.</span> <span class="nav-text">2、in</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、hasOwnProperty、in-对比"><span class="nav-number">1.3.</span> <span class="nav-text">3、hasOwnProperty、in 对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、检查对象是否在原型链上"><span class="nav-number">2.</span> <span class="nav-text">二、检查对象是否在原型链上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、isPrototypeOf"><span class="nav-number">2.1.</span> <span class="nav-text">1、isPrototypeOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、instanceof"><span class="nav-number">2.2.</span> <span class="nav-text">2、instanceof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、isPrototypeOf、instanceof-对比"><span class="nav-number">2.3.</span> <span class="nav-text">3、isPrototypeOf、instanceof 对比</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -969,6 +630,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
