@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、定义ECMAScript规范为所有函数都包含两个方法（这两个方法非继承而来），call 和 apply 。这两个函数都是在特定的作用域中调用函数,能改变函数的作用域，实际上是改变函数体内 this 的值  1、call 描述：用来代替另一个对象调用一个方法fn，可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象 格式：call(thisObj, arg1, arg2…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js方法：call() 和 apply()">
+<meta property="og:url" content="http://yoursite.com/2018/09/06/js方法call() 和 apply()/index.html">
+<meta property="og:site_name" content="小兔">
+<meta property="og:description" content="一、定义ECMAScript规范为所有函数都包含两个方法（这两个方法非继承而来），call 和 apply 。这两个函数都是在特定的作用域中调用函数,能改变函数的作用域，实际上是改变函数体内 this 的值  1、call 描述：用来代替另一个对象调用一个方法fn，可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象 格式：call(thisObj, arg1, arg2…">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-06T06:12:53.780Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js方法：call() 和 apply()">
+<meta name="twitter:description" content="一、定义ECMAScript规范为所有函数都包含两个方法（这两个方法非继承而来），call 和 apply 。这两个函数都是在特定的作用域中调用函数,能改变函数的作用域，实际上是改变函数体内 this 的值  1、call 描述：用来代替另一个对象调用一个方法fn，可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象 格式：call(thisObj, arg1, arg2…">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/06/js方法call() 和 apply()/"/>
+
+
+
+
+
+  <title>js方法：call() 和 apply() | 小兔</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小兔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/06/js方法call() 和 apply()/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lexie Moon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小兔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js方法：call() 和 apply()</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T11:36:09+08:00">
+                2018-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h2><p>ECMAScript规范为所有函数都包含两个方法（这两个方法非继承而来），<code>call</code> 和 <code>apply</code> 。这两个函数都是在特定的作用域中调用函数,能改变函数的作用域，实际上是改变函数体内 <code>this</code> 的值 </p>
+<h3 id="1、call"><a href="#1、call" class="headerlink" title="1、call"></a>1、call</h3><ul>
+<li>描述：用来代替另一个对象调用一个方法fn，可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象</li>
+<li>格式：call(thisObj, arg1, arg2…)</li>
+<li>参数：thisObj为更改后的函数调用上下文，如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj.  arg1…为作用域下传递给函数的参数名，非必填</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'Tome'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">'Jarry'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sayName.call(<span class="keyword">this</span>));    <span class="comment">//Tome</span></span><br><span class="line"><span class="built_in">console</span>.log(sayName.call(obj));    <span class="comment">//Jarry</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、apply"><a href="#2、apply" class="headerlink" title="2、apply"></a>2、apply</h3><ul>
+<li>描述：功能同call</li>
+<li>格式：apply(thisObj, [argArray])</li>
+<li>参数：thisObj同call.  如果 argArray 不是一个有效的数组或者不是 arguments 对象，那么将导致一个 TypeError。如果没有提供 argArray 和 thisObj 任何一个参数，那么 Global 对象将被用作 thisObj， 并且无法被传递任何参数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addCall</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> add.call(<span class="keyword">this</span>,x,y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addApply</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> add.apply(<span class="keyword">this</span>,[x,y])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addCall(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">addApply(<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h2><p>相同点:</p>
+<blockquote>
+<ul>
+<li>方法的含义是一样的，即方法功能是一样的</li>
+<li>第一个参数的作用是一样的</li>
+</ul>
+</blockquote>
+<p>不同点：两者传入的列表形式不一样</p>
+<blockquote>
+<ul>
+<li>call 可以传入多个参数，从第二个参数开始依次传入</li>
+<li>apply 只能传入两个参数，所以其第二个参数往往是作为数组形式传入</li>
+</ul>
+</blockquote>
+<h2 id="三、高级用法，实现继承"><a href="#三、高级用法，实现继承" class="headerlink" title="三、高级用法，实现继承"></a>三、高级用法，实现继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类 Person</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类 Chinese</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Chinese</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//借助 call 实现继承</span></span><br><span class="line">    Person.call(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.ch = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'我是中国人'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类 America</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">America</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//借助 call 实现继承</span></span><br><span class="line">    Person.call(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.am = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'我是美国人'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">var</span> chinese = <span class="keyword">new</span> Chinese(<span class="string">'成龙'</span>);</span><br><span class="line"><span class="comment">//调用 父类方法</span></span><br><span class="line"><span class="built_in">console</span>.log(chinese.sayName());   <span class="comment">//输出 成龙</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> america = <span class="keyword">new</span> America(<span class="string">'America'</span>);</span><br><span class="line"><span class="comment">//调用 父类方法</span></span><br><span class="line"><span class="built_in">console</span>.log(america.sayName());   <span class="comment">//输出 America</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p><code>call</code> 和 <code>apply</code> 最大的好处:方便我们解耦，对象不需要和方法有任何的耦合性，能使我们写出更好的面相对象程序。<br>大家如果看一些 js 框架底层的话会看到好多地方都有大量用到。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/05/js方法hasOwnProperty与in、isPrototypeOf与instanceof的区别/" rel="next" title="js方法：hasOwnProperty与in、isPrototypeOf与instanceof">
+                <i class="fa fa-chevron-left"></i> js方法：hasOwnProperty与in、isPrototypeOf与instanceof
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lexie Moon</p>
+              <p class="site-description motion-element" itemprop="description">活像一只小兔， very similar with a rabbit ！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、定义"><span class="nav-number">1.</span> <span class="nav-text">一、定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、call"><span class="nav-number">1.1.</span> <span class="nav-text">1、call</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、apply"><span class="nav-number">1.2.</span> <span class="nav-text">2、apply</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、区别"><span class="nav-number">2.</span> <span class="nav-text">二、区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、高级用法，实现继承"><span class="nav-number">3.</span> <span class="nav-text">三、高级用法，实现继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、总结"><span class="nav-number">4.</span> <span class="nav-text">四、总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lexie Moon</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
