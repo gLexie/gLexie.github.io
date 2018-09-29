@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="一、问题描述项目中遇到在div内的搜索框需要在div顶部fixed的需求，不能跟随div内部的滚动条一起被拖拽。但不能直接使用fixed的定位方式，因为他是相对于窗口进行定位。 二、解决思路这是我们希望的效果，child是需要在parent内实现fixed定位的目标元素，parent内的其他内容根据滚动条可以上下移动 fixed不行，我们可以用absolute定位，给child元素absolute">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/08/10/hello-world/index.html">
+<meta property="og:title" content="div内部元素fixed效果定位">
+<meta property="og:url" content="http://yoursite.com/2018/09/29/div内部元素fixed效果定位/index.html">
 <meta property="og:site_name" content="小兔">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="一、问题描述项目中遇到在div内的搜索框需要在div顶部fixed的需求，不能跟随div内部的滚动条一起被拖拽。但不能直接使用fixed的定位方式，因为他是相对于窗口进行定位。 二、解决思路这是我们希望的效果，child是需要在parent内实现fixed定位的目标元素，parent内的其他内容根据滚动条可以上下移动 fixed不行，我们可以用absolute定位，给child元素absolute">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-27T07:41:03.084Z">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/div内部元素fixed效果定位/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/29/div内部元素fixed效果定位/2.png">
+<meta property="og:updated_time" content="2018-09-29T07:31:45.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="div内部元素fixed效果定位">
+<meta name="twitter:description" content="一、问题描述项目中遇到在div内的搜索框需要在div顶部fixed的需求，不能跟随div内部的滚动条一起被拖拽。但不能直接使用fixed的定位方式，因为他是相对于窗口进行定位。 二、解决思路这是我们希望的效果，child是需要在parent内实现fixed定位的目标元素，parent内的其他内容根据滚动条可以上下移动 fixed不行，我们可以用absolute定位，给child元素absolute">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/29/div内部元素fixed效果定位/1.png">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/10/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/29/div内部元素fixed效果定位/"/>
 
 
 
 
 
-  <title>Hello World | 小兔</title>
+  <title>div内部元素fixed效果定位 | 小兔</title>
   
 
 
@@ -232,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/10/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/29/div内部元素fixed效果定位/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lexie Moon">
@@ -249,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">div内部元素fixed效果定位</h1>
         
 
         <div class="post-meta">
@@ -261,8 +264,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T11:08:53+08:00">
-                2018-08-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T13:55:33+08:00">
+                2018-09-29
               </time>
             
 
@@ -299,16 +302,11 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h2 id="一、问题描述"><a href="#一、问题描述" class="headerlink" title="一、问题描述"></a>一、问题描述</h2><p>项目中遇到在div内的搜索框需要在div顶部fixed的需求，不能跟随div内部的滚动条一起被拖拽。<br>但不能直接使用fixed的定位方式，因为他是相对于窗口进行定位。</p>
+<h2 id="二、解决思路"><a href="#二、解决思路" class="headerlink" title="二、解决思路"></a>二、解决思路</h2><p>这是我们希望的效果，child是需要在parent内实现fixed定位的目标元素，parent内的其他内容根据滚动条可以上下移动<br><img src="/2018/09/29/div内部元素fixed效果定位/1.png" alt="此处有图片，但是当你看到这段文字的时候它可能裂了"></p>
+<p>fixed不行，我们可以用<strong>absolute</strong>定位，给child元素absolute定位，absolute会相对于<strong>最近的已定位的祖先元素</strong>进行定位，为了child有固定的效果，我们则应该添加一个没有滚动条的div容器assistor在parent容器外，大小和parent一致，并设置为relative，让他成为child的最近的已定位祖先元素，则可以实现即使parent内容滚动，child也会fixed在原位置的效果，因为child此时的定位是跟随assistor的，而非parent<br><img src="/2018/09/29/div内部元素fixed效果定位/2.png" alt="此处有图片，但是当你看到这段文字的时候它可能裂了"></p>
+<h2 id="三、最终代码"><a href="#三、最终代码" class="headerlink" title="三、最终代码"></a>三、最终代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"assistor"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>固定顶部<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>正文四言绝句balabala<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.assistor</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative; <span class="comment">/* 关键点 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>:auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -332,15 +330,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/09/11/js立即执行函数/" rel="next" title="js立即执行函数：(function(){})()">
+                <i class="fa fa-chevron-left"></i> js立即执行函数：(function(){})()
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/10/vue-cli+webpack项目，手机无法访问本地服务/" rel="prev" title="vue-cli+webpack项目，手机无法访问本地服务">
-                vue-cli+webpack项目，手机无法访问本地服务 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -454,7 +452,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、问题描述"><span class="nav-number">1.</span> <span class="nav-text">一、问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、解决思路"><span class="nav-number">2.</span> <span class="nav-text">二、解决思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、最终代码"><span class="nav-number">3.</span> <span class="nav-text">三、最终代码</span></a></li></ol></div>
             
 
           </div>
